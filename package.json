@@ -5,7 +5,7 @@
   "version": "0.0.5",
   "main": "index.js",
   "devDependencies": {
-    "resourceful": ">=0.0.1",
+    "resourceful": "git://github.com/bigbigbomb/resourceful.git",
     "vows": "0.5.x >=0.5.11",
     "async": "~0.1.15"
   },

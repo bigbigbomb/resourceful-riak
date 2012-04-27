@@ -64,6 +64,21 @@ Riak.prototype.all = function(callback) {
   });
 }
 
+Riak.prototype.find = function(conditions, callback) {
+  this.client.getAll(this.bucket, function(e, all) {
+    if(e) {
+      callback(e);
+    } else {
+      var models = all.map(function(obj) {
+        var data = obj.data;
+        data._id = obj.meta.key;
+        return data;
+      });
+      callback(null, models);
+    }
+  });
+}
+
 Riak.prototype.destroy = function(key, callback) {
   this.client.remove(this.bucket, key, callback);
 }

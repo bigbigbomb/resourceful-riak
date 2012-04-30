@@ -65,7 +65,7 @@ Riak.prototype.all = function(callback) {
 }
 
 Riak.prototype.find = function(conditions, callback) {
-  this.client.getAll(this.bucket, function(e, all) {
+  this.client.getAll(this.bucket, conditions, function(e, all) {
     if(e) {
       callback(e);
     } else {
